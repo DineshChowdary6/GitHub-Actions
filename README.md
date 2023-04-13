@@ -23,3 +23,7 @@ https://docs.github.com/en/actions/using-github-hosted-runners/about-github-host
 1. git log
 2. git revert commitId
 3. it opens the cmd enter :q!
+
+
+# Notes to myself
+1. [i] ignore those commits, nothing major in those

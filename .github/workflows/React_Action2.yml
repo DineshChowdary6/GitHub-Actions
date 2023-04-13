@@ -18,3 +18,26 @@ jobs:
 
     - name: Run the test cases
       run: npm test
+  
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Checkout the code
+      uses: actions/checkout@v3.5.2
+
+    - name: NodeJS Install
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install the dependencies
+      run: npm ci
+    
+    - name: Build the project
+      run: npm run build
+    
+    - name: deploy
+      run: echo "Deploying the react Git Applicaiton"
+
+
