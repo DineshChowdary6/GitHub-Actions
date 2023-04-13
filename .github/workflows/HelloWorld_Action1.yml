@@ -1,12 +1,15 @@
 name: First Action Workflow
+
 on: workflow_dispatch
+
 jobs:
   firstJob:
-  runs-on: ubuntu-latest
-  - name: Print Hello World!
-    run: echo "Hello Dinesh"
-  - name: Print end of the steps
-    run: echo "printing the second steps"
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print Hello World!
+      run: echo "Hello Dinesh"
+    - name: Print end of the steps
+      run: echo "printing the second steps"
   
 # This is a basic workflow to help you get started with Actions
 
