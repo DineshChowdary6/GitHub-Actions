@@ -10,6 +10,11 @@ jobs:
       run: echo "Hello Dinesh"
     - name: Print end of the steps
       run: echo "printing the second steps"
+    - name: Multi Line shell Commmands
+      run: |
+          echo "First Multi Line"
+          echo "second Multi Line"
+  
   
 # This is a basic workflow to help you get started with Actions
 
