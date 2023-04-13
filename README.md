@@ -18,3 +18,8 @@ https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
 
 #pre installed software in servers 
 https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software
+
+## Git
+1. git log
+2. git revert commitId
+3. it opens the cmd enter :q!
