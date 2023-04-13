@@ -19,6 +19,9 @@ https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
 #pre installed software in servers 
 https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software
 
+# Expressions
+https://docs.github.com/en/actions/learn-github-actions/expressions
+
 ## Git
 1. git log
 2. git revert commitId
