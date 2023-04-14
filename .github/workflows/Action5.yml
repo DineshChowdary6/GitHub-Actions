@@ -1,0 +1,59 @@
+name: Job Artifacts and Outputs
+on:
+  pull_request:
+    types: [opened, edited]
+    # the above PR target any of the branches below
+    branches:
+      - Feature*
+  workflow_dispatch:
+    # if you want to run the build for each commit you pushed after creating the PR.
+  push:
+    branches:
+      - Feature*
+      - main
+    paths-ignore:
+      - ".github/workflows/*"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3.5.2
+      - name: Install the dependencies
+        run: npm ci
+      - name: Test the code
+        run: npm run test
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3.5.2
+      - name: Install the dependencies
+        run: npm ci
+      - name: Build the project
+        run: npm run build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy the git project
+        run: echo "Deployingnthe project"
+
+  Issues:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: output all the details of the event that triggered the workflow.
+        run: echo "${{ toJson(github.event)}}"
+
+  Info:
+    needs: Issues
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output Github Context
+        run: echo "${{ toJSON(github) }}"
+      - name: output all the details of the event that triggered the workflow.
+        run: echo "${{ toJson(github.event)}}"
