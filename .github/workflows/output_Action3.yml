@@ -6,3 +6,6 @@ jobs:
       steps:
         - name: Output Github Context
           run: echo "${{ toJSON(github) }}"
+        - name: output all the details of the event that triggered the workflow.
+          run: echo "${{ toJson(github.event)}}"
+
