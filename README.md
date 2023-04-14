@@ -27,6 +27,8 @@ https://docs.github.com/en/actions/learn-github-actions/expressions
 2. git revert commitId
 3. it opens the cmd enter :q!
 
+# Skipping the workflows
+https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs
 
 # Notes to myself
 1. [i] ignore those commits, nothing major in those
