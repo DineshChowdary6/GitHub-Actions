@@ -33,5 +33,8 @@ https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs
 # upload the artifacts
 https://github.com/actions/upload-artifact
 
+# downaload the artifacts
+https://github.com/actions/download-artifact
+
 # Notes to myself
 1. [i] ignore those commits, nothing major in those

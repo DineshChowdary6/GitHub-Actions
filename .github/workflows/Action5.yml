@@ -34,6 +34,7 @@ jobs:
         run: npm ci
       - name: Build the project
         run: npm run build
+
       - name: upload the artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -47,6 +48,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: download the artifacts
+        uses: actions/download-artifact@v3
+        with: 
+          name: react project dist files
+
+      - name: output contents
+        run: ls
+        
       - name: Deploy the git project
         run: echo "Deployingnthe project"
 
