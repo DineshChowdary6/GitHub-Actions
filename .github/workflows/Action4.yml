@@ -2,6 +2,9 @@ name: Workflows and Events
 on:
     pull_request:
         types: [opened, edited]
+        # the above PR target any of the branches below 
+        branches:
+            - Feature*
     workflow_dispatch:
         # if you want to run the build for each commit you pushed after creating the PR.
     push:
