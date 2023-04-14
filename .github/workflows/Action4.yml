@@ -1,0 +1,28 @@
+name: Workflows and Events
+on:
+    pull_request:
+        types:
+            - opened
+    workflow_dispatch:
+        
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output the event data
+        run: echo "${{ toJson(github.event)}}"
+
+      - name: Checkout the code
+        uses: actions/checkout@v3.5.2
+
+      - name: Install the dependencies
+        run: npm ci
+
+      - name: Test the code
+        run: npm run test
+
+      - name: Build the project
+        run: npm run build
+
+      - name: deploy the project
+        run: echo "Deploying the react Git Applicaiton"
