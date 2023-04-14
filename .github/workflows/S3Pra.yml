@@ -1,0 +1,16 @@
+name: ET
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3.5.2
+      - name: NodeJS Install
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install the dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
