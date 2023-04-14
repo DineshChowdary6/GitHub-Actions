@@ -34,6 +34,14 @@ jobs:
         run: npm ci
       - name: Build the project
         run: npm run build
+      - name: upload the artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: react project dist files
+          path: |
+            dist
+            package.json
+
 
   deploy:
     needs: build
@@ -43,14 +51,14 @@ jobs:
         run: echo "Deployingnthe project"
 
   Issues:
-    needs: build
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - name: output all the details of the event that triggered the workflow.
         run: echo "${{ toJson(github.event)}}"
 
   Info:
-    needs: Issues
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - name: Output Github Context

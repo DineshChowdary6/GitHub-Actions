@@ -30,5 +30,8 @@ https://docs.github.com/en/actions/learn-github-actions/expressions
 # Skipping the workflows
 https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs
 
+# upload the artifacts
+https://github.com/actions/upload-artifact
+
 # Notes to myself
 1. [i] ignore those commits, nothing major in those
