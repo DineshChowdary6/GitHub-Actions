@@ -2,10 +2,16 @@ name: Workflows and Events
 on:
     pull_request:
         types: [opened, edited]
-    workflow_dispatch:
-    push:
         branches:
             - Feature*
+    workflow_dispatch:
+        # if you want to run the build for each commit you pushed after creating the PR.
+    # push:
+    #     branches:
+    #         - Feature*
+    #         - main
+    #     paths-ignore:
+    #         - '.github/workflows/*'
 
 jobs:
   deploy:
