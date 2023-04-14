@@ -20,7 +20,8 @@
 #         run: echo "Deploying the react Git Applicaiton"
 
 name: ET
-on: push
+# on: push
+on: workflow_dispatch
 jobs:
   tests:
     runs-on: ubuntu-latest
@@ -41,7 +42,7 @@ jobs:
         uses: actions/checkout@v3.5.2
       - name: Install the dependencies
         run: npm ci
-        
+
       - name: run the lint 
         run: npm run lint
   deploy:
