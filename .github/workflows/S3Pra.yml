@@ -22,7 +22,7 @@
 name: ET
 on: push
 jobs:
-  build:
+  tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
@@ -30,21 +30,29 @@ jobs:
       
       - name: Install the dependencies
         run: npm ci
-  tests:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
+
       - name: run the test cases
         run: npm run test
   lint:
     needs: tests
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3.5.2
+      - name: Install the dependencies
+        run: npm ci
+        
       - name: run the lint 
         run: npm run lint
   deploy:
     needs: lint
     runs-on: ubuntu-latest
-    steps:
+    
+    steps: 
+      - name: Checkout the code
+        uses: actions/checkout@v3.5.2
+      - name: Install the dependencies
+        run: npm ci
+
       - name: deploy
         run: echo "Deploying the react Git Applicaiton"
