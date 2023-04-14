@@ -40,7 +40,7 @@ jobs:
       - name: Run the test cases
         run: npm run test
   deploy:
-    needs: tests
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - name: deploy
