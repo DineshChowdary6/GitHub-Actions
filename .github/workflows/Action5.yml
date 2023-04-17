@@ -27,6 +27,8 @@ jobs:
   build:
     needs: test
     runs-on: ubuntu-latest
+    outputs:
+      script-files: ${{ steps.publishh.outputs.scpt-file}}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3.5.2
@@ -34,6 +36,9 @@ jobs:
         run: npm ci
       - name: Build the project
         run: npm run build
+      - name: publish Js filename
+        id: publishh
+        run: find dist/assets/*.js -type -f -execdir echo 'scpt-file={}' >>$GITHUB_OUTPUT';'
 
       - name: upload the artifacts
         uses: actions/upload-artifact@v3
@@ -55,7 +60,9 @@ jobs:
 
       - name: output contents
         run: ls
-        
+      - name: Ouput the file name
+        run: echo "${{ needs.build.outputs.script-files}}"
+
       - name: Deploy the git project
         run: echo "Deployingnthe project"
 
